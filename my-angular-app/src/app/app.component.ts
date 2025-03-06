@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeadComponent } from './head/head.component';
+import { HorizontalComponent } from './horizontal/horizontal.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, HeadComponent, HorizontalComponent], // Додаємо компонент
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'my-angular-app';
+  title = 'resume';
+  picture: string = '/assets/image/photo.png';
 }

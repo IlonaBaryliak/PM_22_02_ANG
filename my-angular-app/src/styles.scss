@@ -1,1 +1,411 @@
 /* You can add global styles to this file, and also import other style files */
+$primary-color: #2f3137;
+$blue-color: #1174ae;
+body {
+  width: 100%;
+  height: auto;
+  font-family: "Raleway", sans-serif;
+  overflow-x: hidden;
+}
+
+.col-7 {
+  flex: 0 0 auto;
+  width: 62.4%;
+}
+.col-5 {
+  flex: 0 0 auto;
+  width: 37.6%;
+  //height: 100vh;
+}
+.name {
+  font-size: 5.33vw;
+  line-height: 5.33vw;
+  text-transform: uppercase;
+  color: $primary-color;
+  font-weight: 800;
+  margin-top: 10%;
+  margin-bottom: 0.5rem;
+}
+.work-now {
+  font-size: 1.87vw;
+  letter-spacing: 0.5dvh;
+  //letter-spacing: 4px;
+  color: $blue-color;
+  font-weight: 300;
+  font-style: italic;
+  font-family: "Raleway ";
+  margin-bottom: 1rem;
+}
+.introduction {
+  height: 8rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: $primary-color;
+  text-align: left;
+  //font-family: 'Ral';
+  width: 100%; /* Адаптивна ширина */
+}
+.years-color {
+  float: left;
+  width: 1.5rem;
+  height: 8.5rem;
+  background-color: $blue-color;
+  display: flex; /* Додаємо flexbox */
+  flex-direction: column; /* Розміщуємо по вертикалі */
+  justify-content: center; /* Центруємо по вертикалі */
+  align-items: center; /* Центруємо по горизонталі */
+}
+
+.years {
+  text-align: center;
+  margin: 0; /* Змінюємо відступи */
+  writing-mode: tb-rl; /* Вертикальне написання */
+  transform: rotate(-180deg); /* Поворот тексту */
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Raleway";
+  display: block; /* Можна залишити, якщо потрібно */
+}
+.grey-color {
+  padding-right: 4rem;
+  width: 100%; /* Використовуємо відсоткову ширину для адаптивності */
+  background-color: $primary-color;
+  box-sizing: border-box;
+  //height: 100%;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative; /* Додаємо позицію відносно для можливого позиціонування */
+  overflow: hidden; /* Сховати вихідний контент */
+}
+/* Стилі для заголовка */
+.head2 {
+  margin: 3rem 0 0rem 8rem;
+
+  font-size: 2.5vw;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 800;
+}
+.head2-1 {
+  margin: 0rem 0rem 0rem 3rem;
+  font-size: 2.5vw;
+  text-transform: uppercase;
+  color: $primary-color;
+  font-weight: 800;
+}
+
+/* Стилі для списку */
+.about-me {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  font-size: 2.5rem;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  margin-left: 3.5rem;
+  padding-bottom: 3rem;
+  //flex-grow: 1;
+  min-height: 40vh;
+}
+.about {
+  @extend .about-me;
+  gap: 1.5rem;
+
+  .skill {
+    display: flex;
+    align-items: center;
+    padding-right: 1.3rem;
+
+    h3 {
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin: 0;
+      color: white;
+      width: 10rem;
+    }
+
+    .progress-bar {
+      flex-grow: 1;
+      background-color: #45464b;
+      position: relative;
+      height: 6px;
+      overflow: visible;
+      .progress {
+        width: 0; /* Початкова ширина 0 для анімації */
+        position: relative;
+        height: 100%; /* Висота прогрес-індикатора */
+        background-color: $blue-color;
+        border-radius: 0;
+        overflow: visible;
+        transition: width 2s ease-in-out, background-color 0.5s ease; /* Об'єднано transition */
+      }
+    }
+  }
+
+  .progress::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0; /* Розміщує квадрат справа */
+    transform: translate(50%, -50%); /* Центрує по вертикалі */
+    width: 10px; /* Ширина квадрата */
+    height: 10px; /* Змінити на бажану висоту квадрата */
+    background-color: $blue-color; /* Колір квадрата */
+    border-radius: 0; /* Це робить його квадратним */
+  }
+}
+
+.about-me a {
+  margin-inline-start: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: #ffffff;
+}
+.column-skills,
+.column-hobbies,
+.column-languages {
+  transition: background-color 0.3s ease; /* Плавний перехід кольору фону */
+}
+
+.column-skills:hover,
+.column-hobbies:hover,
+.column-languages:hover {
+  background-color: $blue-color;
+  height: 100%; /* Колір фону колонки при наведенні */
+}
+
+.column-skills:hover .icon-container1,
+.column-hobbies:hover .icon-container1,
+.column-languages:hover .icon-container1 {
+  background-color: $primary-color;
+  transition: background-color 0.3s ease; /* Плавний перехід кольору фону */
+  /* Колір фону іконки при наведенні */
+}
+
+/* Зміна кольору іконки при наведенні */
+.column-skills:hover .icon-container1 i,
+.column-hobbies:hover .icon-container1 i,
+.column-languages:hover .icon-container1 i {
+  color: white; /* Змінити колір іконки, якщо потрібно */
+}
+
+/* Зміна кольору прогрес-бару при наведенні */
+.column-skills:hover .progress,
+.column-hobbies:hover .progress,
+.column-languages:hover .progress {
+  background-color: $primary-color !important;
+  transition: background-color 0.3s ease; /* Плавний перехід кольору фону */
+  /* Колір прогресу при наведенні */
+}
+.column-skills:hover .progress-bar,
+.column-hobbies:hover .progress-bar,
+.column-languages:hover .progress-bar {
+  background-color: #218ece !important;
+  transition: background-color 0.3s ease; /* Плавний перехід кольору фону */
+  /* Колір прогресу при наведенні */
+}
+.column-skills:hover .progress::after,
+.column-hobbies:hover .progress::after,
+.column-languages:hover .progress::after {
+  background-color: $primary-color; /* Колір квадрата при наведенні */
+}
+.bi {
+  font-size: 1.3rem;
+}
+.icon-container,
+.icon-container1 {
+  width: 2rem;
+  height: 2rem;
+  justify-content: center; /* Центрує горизонтально */
+  align-items: center;
+  margin: 3rem 0 0 3.5rem;
+  display: flex;
+  background-color: $blue-color;
+}
+
+.icon-container2 {
+  @extend .icon-container;
+  margin: 0;
+}
+.intro {
+  padding-left: 2rem;
+  //margin-right: 5rem;
+}
+/* Стилі для заголовків всередині .about */
+.about h3 {
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0; /* Щоб уникнути непотрібних відступів зовні */
+}
+
+.blue-rect {
+  //width: 25rem; /* Ширина прямокутника */
+  height: 3rem; /* Висота прямокутника */
+  background-color: $blue-color; /* Синій колір */
+  margin-bottom: 1.5rem; /* Відстань між синім прямокутником і наступним елементом */
+}
+.blue-and-grey-rect {
+  /* margin-right: 4rem; */
+  width: 88.6%;
+}
+.grey-color1 {
+  background-color: $primary-color;
+}
+
+.job-experience {
+  margin-left: 3.5rem;
+}
+.job-section {
+  margin-top: 3.5rem;
+}
+.agency {
+  margin: 0 0 0 3rem;
+  color: $primary-color;
+  font-size: 2vw;
+  font-weight: bold;
+  font-style: italic;
+}
+.place-work {
+  margin: 0 0 0 3rem;
+  font-size: 1.7vw;
+  color: $primary-color;
+  font-weight: 500;
+  font-style: italic;
+  font-family: "Raleway";
+}
+.position {
+  margin: 0 0 0 3rem;
+  font-size: 2vw;
+  text-transform: uppercase;
+  color: $primary-color; // Основний колір
+  font-weight: 800;
+}
+
+.name1 {
+  @extend .position; // Використовуємо всі властивості з .position
+  margin: 0;
+  padding-top: 0;
+  position: relative;
+  color: #ffffff; // Змінений колір
+}
+
+.job-descripion {
+  margin: 1rem 1rem 3rem 3rem;
+  font-size: 1rem;
+  color: $primary-color;
+  text-align: left;
+}
+.grey-color-vert {
+  padding-top: 0.5rem;
+  padding-bottom: 3.5rem;
+  background-color: $primary-color; /* Колір фону */
+}
+
+/* риска */
+.grey-and-blue-rect {
+  width: 88.6%;
+}
+.line {
+  content: "";
+  left: 0;
+  top: -10rem; /* Відстань від верхнього краю заголовка */
+  width: 18.75rem;
+  height: 0.2rem;
+  margin: -0.2rem 0rem 2rem 3.5rem;
+  background-color: #ffffff;
+}
+.line-long {
+  @extend.line;
+  background-color: $primary-color;
+  width: 95%;
+  margin: -0.2rem 0rem 3rem 0rem;
+}
+.vert-line-plus {
+  display: flex;
+}
+.vert-line {
+  width: 0.1rem; /* Ширина лінії */
+  height: 10.4rem; /* Висота лінії */
+  background-color: #ffffff; /* Колір лінії (можете змінити на бажаний) */
+  margin-left: 3.5rem;
+}
+
+.pos {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+  color: $blue-color;
+  font-weight: bold;
+  font-style: italic;
+  font-family: "Raleway";
+}
+.darwin,
+.robert {
+  margin: 0.5rem 0 0 3.5rem;
+
+  a {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-decoration: none;
+    color: #fff;
+  }
+}
+.robert {
+  margin: 2rem 0 0 3.5rem;
+}
+.agency-uni,
+.position-uni {
+  @extend .agency;
+  margin: 0 0 0 7rem;
+
+  color: #ffffff;
+}
+.uni-description {
+  margin: 0.6rem 2.2rem 0 7rem;
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: left;
+}
+.position-vert {
+  margin-left: 3.5rem;
+}
+.rect-blue-footer {
+  height: 3rem;
+  background-color: $blue-color;
+  margin-top: 1.5rem;
+}
+.first-uni {
+  margin-bottom: 3rem;
+}
+.photo {
+  width: 15rem;
+  height: 19rem;
+  border: 10px solid $blue-color;
+  margin: 3rem 1rem 4rem 5rem;
+}
+
+.page {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  /* Десктопи */
+  .name {
+    font-size: 4.5rem; /* Злегка менше для великих планшетів */
+    line-height: 5.5rem;
+  }
+  .work-now {
+    font-size: 1.6rem; /* Збільшити шрифт для кращої читабельності */
+  }
+}
+
+.roll-block {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+.roll {
+  cursor: pointer;
+}
